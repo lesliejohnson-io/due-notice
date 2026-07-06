@@ -2539,7 +2539,7 @@ function AccountView() {
 export default function App() {
   const [screen, setScreen] = useState<Screen>("login");
   const [view, setView] = useState<View>("dashboard");
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   const toggleDark = () => setIsDark((d) => !d);
 
