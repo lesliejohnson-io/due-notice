@@ -1,17 +1,44 @@
 import { useState, useRef, useEffect } from "react";
 import {
-  Eye, EyeOff, Check, CheckCircle2,
-  CreditCard, Calendar, Bell, Users, Settings,
-  LayoutDashboard, Clock, Award,
-  Plus, Trash2, ChevronRight, Sun, Moon, X,
-  AlertTriangle, Building2, DollarSign,
-  LogOut, ChevronLeft, Smartphone,
-  Edit2, Download, Star, Fingerprint,
+  Eye,
+  EyeOff,
+  Check,
+  CheckCircle2,
+  CreditCard,
+  Calendar,
+  Bell,
+  Users,
+  Settings,
+  LayoutDashboard,
+  Clock,
+  Award,
+  Plus,
+  Trash2,
+  ChevronRight,
+  Sun,
+  Moon,
+  X,
+  AlertTriangle,
+  Building2,
+  DollarSign,
+  LogOut,
+  ChevronLeft,
+  Smartphone,
+  Edit2,
+  Download,
+  Star,
+  Fingerprint,
 } from "lucide-react";
 
 // ── Phone Frame ───────────────────────────────────────────────────────────────
 
-function PhoneFrame({ children, isDark }: { children: React.ReactNode; isDark: boolean }) {
+function PhoneFrame({
+  children,
+  isDark,
+}: {
+  children: React.ReactNode;
+  isDark: boolean;
+}) {
   return (
     <div
       style={{
@@ -28,11 +55,51 @@ function PhoneFrame({ children, isDark }: { children: React.ReactNode; isDark: b
       {/* Outer phone shell */}
       <div style={{ position: "relative", flexShrink: 0 }}>
         {/* Volume buttons (left) */}
-        <div style={{ position: "absolute", left: -4, top: 108, width: 4, height: 28, background: "#3a3a3c", borderRadius: "3px 0 0 3px" }} />
-        <div style={{ position: "absolute", left: -4, top: 148, width: 4, height: 48, background: "#3a3a3c", borderRadius: "3px 0 0 3px" }} />
-        <div style={{ position: "absolute", left: -4, top: 208, width: 4, height: 48, background: "#3a3a3c", borderRadius: "3px 0 0 3px" }} />
+        <div
+          style={{
+            position: "absolute",
+            left: -4,
+            top: 108,
+            width: 4,
+            height: 28,
+            background: "#3a3a3c",
+            borderRadius: "3px 0 0 3px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: -4,
+            top: 148,
+            width: 4,
+            height: 48,
+            background: "#3a3a3c",
+            borderRadius: "3px 0 0 3px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: -4,
+            top: 208,
+            width: 4,
+            height: 48,
+            background: "#3a3a3c",
+            borderRadius: "3px 0 0 3px",
+          }}
+        />
         {/* Power button (right) */}
-        <div style={{ position: "absolute", right: -4, top: 152, width: 4, height: 72, background: "#3a3a3c", borderRadius: "0 3px 3px 0" }} />
+        <div
+          style={{
+            position: "absolute",
+            right: -4,
+            top: 152,
+            width: 4,
+            height: 72,
+            background: "#3a3a3c",
+            borderRadius: "0 3px 3px 0",
+          }}
+        />
 
         {/* Phone body */}
         <div
@@ -41,7 +108,8 @@ function PhoneFrame({ children, isDark }: { children: React.ReactNode; isDark: b
             background: "#1c1c1e",
             borderRadius: 54,
             padding: 6,
-            boxShadow: "0 60px 120px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset, 0 2px 4px rgba(255,255,255,0.06) inset",
+            boxShadow:
+              "0 60px 120px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset, 0 2px 4px rgba(255,255,255,0.06) inset",
           }}
         >
           {/* Screen */}
@@ -70,7 +138,14 @@ function PhoneFrame({ children, isDark }: { children: React.ReactNode; isDark: b
             />
 
             {/* App content fills screen */}
-            <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               {children}
             </div>
 
@@ -97,10 +172,16 @@ function PhoneFrame({ children, isDark }: { children: React.ReactNode; isDark: b
 
 // ── Due Notice Logo ───────────────────────────────────────────────────────────
 
-function DueNoticeLogo({ size = "md" }: { size?: "sm" | "md" }) {
+function DueNoticeLogo({
+  size = "md",
+}: {
+  size?: "sm" | "md";
+}) {
   const sm = size === "sm";
   return (
-    <div className={`flex items-center ${sm ? "gap-2" : "gap-2.5"} shrink-0`}>
+    <div
+      className={`flex items-center ${sm ? "gap-2" : "gap-2.5"} shrink-0`}
+    >
       <svg
         viewBox="0 0 32 32"
         className={sm ? "w-7 h-7" : "w-9 h-9"}
@@ -118,7 +199,9 @@ function DueNoticeLogo({ size = "md" }: { size?: "sm" | "md" }) {
           fontSize="18"
           fontFamily="Lato, sans-serif"
           fontWeight="900"
-        >$</text>
+        >
+          $
+        </text>
         {/* Notice dot */}
         <circle cx="25.5" cy="6.5" r="4.5" fill="#31b237" />
       </svg>
@@ -134,7 +217,13 @@ function DueNoticeLogo({ size = "md" }: { size?: "sm" | "md" }) {
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 type Screen = "login" | "2fa" | "app";
-type View = "dashboard" | "payment" | "history" | "payors" | "notifications" | "account";
+type View =
+  | "dashboard"
+  | "payment"
+  | "history"
+  | "payors"
+  | "notifications"
+  | "account";
 
 interface Loan {
   id: string;
@@ -213,17 +302,71 @@ const LOANS: Loan[] = [
 ];
 
 const PAYMENTS: Payment[] = [
-  { id: "P001", date: "2026-06-15", amount: 580.0, status: "completed", loan: "Federal Loans", payor: "You" },
-  { id: "P002", date: "2026-06-22", amount: 287.0, status: "completed", loan: "Graduate Private Loan", payor: "You" },
-  { id: "P003", date: "2026-05-15", amount: 580.0, status: "completed", loan: "Federal Loans", payor: "Margaret Chen" },
-  { id: "P004", date: "2026-05-22", amount: 287.0, status: "completed", loan: "Graduate Private Loan", payor: "You" },
-  { id: "P005", date: "2026-07-15", amount: 580.0, status: "pending", loan: "Federal Loans", payor: "You" },
-  { id: "P006", date: "2026-04-15", amount: 580.0, status: "completed", loan: "Federal Loans", payor: "You" },
+  {
+    id: "P001",
+    date: "2026-06-15",
+    amount: 580.0,
+    status: "completed",
+    loan: "Federal Loans",
+    payor: "You",
+  },
+  {
+    id: "P002",
+    date: "2026-06-22",
+    amount: 287.0,
+    status: "completed",
+    loan: "Graduate Private Loan",
+    payor: "You",
+  },
+  {
+    id: "P003",
+    date: "2026-05-15",
+    amount: 580.0,
+    status: "completed",
+    loan: "Federal Loans",
+    payor: "Margaret Chen",
+  },
+  {
+    id: "P004",
+    date: "2026-05-22",
+    amount: 287.0,
+    status: "completed",
+    loan: "Graduate Private Loan",
+    payor: "You",
+  },
+  {
+    id: "P005",
+    date: "2026-07-15",
+    amount: 580.0,
+    status: "pending",
+    loan: "Federal Loans",
+    payor: "You",
+  },
+  {
+    id: "P006",
+    date: "2026-04-15",
+    amount: 580.0,
+    status: "completed",
+    loan: "Federal Loans",
+    payor: "You",
+  },
 ];
 
 const BANK_ACCOUNTS: BankAccount[] = [
-  { id: "B001", name: "Chase Total Checking", last4: "4821", type: "checking", isPrimary: true },
-  { id: "B002", name: "Wells Fargo Savings", last4: "9043", type: "savings", isPrimary: false },
+  {
+    id: "B001",
+    name: "Chase Total Checking",
+    last4: "4821",
+    type: "checking",
+    isPrimary: true,
+  },
+  {
+    id: "B002",
+    name: "Wells Fargo Savings",
+    last4: "9043",
+    type: "savings",
+    isPrimary: false,
+  },
 ];
 
 const GUEST_PAYORS_INIT: GuestPayor[] = [
@@ -248,7 +391,10 @@ const GUEST_PAYORS_INIT: GuestPayor[] = [
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 const fmt = (n: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(n);
 
 const fmtDate = (s: string) =>
   new Date(s + "T12:00:00").toLocaleDateString("en-US", {
@@ -258,15 +404,26 @@ const fmtDate = (s: string) =>
   });
 
 const daysUntil = (s: string) =>
-  Math.ceil((new Date(s + "T12:00:00").getTime() - Date.now()) / 86400000);
+  Math.ceil(
+    (new Date(s + "T12:00:00").getTime() - Date.now()) /
+      86400000,
+  );
 
 // ── Login Screen ──────────────────────────────────────────────────────────────
 
-function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric: () => void }) {
+function LoginScreen({
+  onNext,
+  onBiometric,
+}: {
+  onNext: () => void;
+  onBiometric: () => void;
+}) {
   const [email, setEmail] = useState("jordan.hayes@gmail.com");
   const [password, setPassword] = useState("mypassword");
   const [showPw, setShowPw] = useState(false);
-  const [bioState, setBioState] = useState<"idle" | "scanning" | "success">("idle");
+  const [bioState, setBioState] = useState<
+    "idle" | "scanning" | "success"
+  >("idle");
 
   const handleBiometric = () => {
     setBioState("scanning");
@@ -283,7 +440,9 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
           <div className="mb-10">
             <DueNoticeLogo />
           </div>
-          <h1 className="font-display text-3xl text-foreground mb-2">Welcome back.</h1>
+          <h1 className="font-display text-3xl text-foreground mb-2">
+            Welcome back.
+          </h1>
           <p className="text-muted-foreground text-sm leading-relaxed">
             Sign in to manage your student loans securely.
           </p>
@@ -301,8 +460,8 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
                 bioState === "success"
                   ? "bg-green-100 dark:bg-green-900/30"
                   : bioState === "scanning"
-                  ? "bg-primary/10"
-                  : "bg-input-background hover:bg-primary/10 border border-border group-hover:border-primary/40"
+                    ? "bg-primary/10"
+                    : "bg-input-background hover:bg-primary/10 border border-border group-hover:border-primary/40"
               }`}
             >
               {bioState === "scanning" && (
@@ -314,8 +473,8 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
                   bioState === "success"
                     ? "text-green-600 dark:text-green-400"
                     : bioState === "scanning"
-                    ? "text-primary"
-                    : "text-muted-foreground group-hover:text-primary"
+                      ? "text-primary"
+                      : "text-muted-foreground group-hover:text-primary"
                 }`}
                 strokeWidth={1.5}
               />
@@ -325,8 +484,8 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
                 bioState === "success"
                   ? "text-green-600 dark:text-green-400"
                   : bioState === "scanning"
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                    ? "text-primary"
+                    : "text-muted-foreground"
               }`}
             >
               {bioState === "idle" && "Use Face ID or Touch ID"}
@@ -338,7 +497,9 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
 
         <div className="flex items-center gap-3 mb-6">
           <div className="flex-1 h-px bg-border" />
-          <span className="text-xs text-muted-foreground">or sign in with password</span>
+          <span className="text-xs text-muted-foreground">
+            or sign in with password
+          </span>
           <div className="flex-1 h-px bg-border" />
         </div>
 
@@ -360,7 +521,9 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
               <label className="block text-xs font-medium text-muted-foreground uppercase tracking-wider">
                 Password
               </label>
-              <button className="text-xs text-primary hover:underline">Forgot password?</button>
+              <button className="text-xs text-primary hover:underline">
+                Forgot password?
+              </button>
             </div>
             <div className="relative">
               <input
@@ -373,7 +536,11 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
                 onClick={() => setShowPw(!showPw)}
                 className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
               >
-                {showPw ? <EyeOff size={15} /> : <Eye size={15} />}
+                {showPw ? (
+                  <EyeOff size={15} />
+                ) : (
+                  <Eye size={15} />
+                )}
               </button>
             </div>
           </div>
@@ -387,7 +554,9 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
         </div>
 
         <p className="text-center text-xs text-muted-foreground mt-8 leading-relaxed">
-          Protected by 256-bit encryption and<br />two-factor authentication
+          Protected by 256-bit encryption and
+          <br />
+          two-factor authentication
         </p>
       </div>
     </div>
@@ -396,7 +565,13 @@ function LoginScreen({ onNext, onBiometric }: { onNext: () => void; onBiometric:
 
 // ── 2FA Screen ────────────────────────────────────────────────────────────────
 
-function TwoFAScreen({ onVerify, onBack }: { onVerify: () => void; onBack: () => void }) {
+function TwoFAScreen({
+  onVerify,
+  onBack,
+}: {
+  onVerify: () => void;
+  onBack: () => void;
+}) {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
   const [remember, setRemember] = useState(false);
   const inputRefs = [
@@ -426,7 +601,10 @@ function TwoFAScreen({ onVerify, onBack }: { onVerify: () => void; onBack: () =>
   };
 
   const handlePaste = (e: React.ClipboardEvent) => {
-    const text = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
+    const text = e.clipboardData
+      .getData("text")
+      .replace(/\D/g, "")
+      .slice(0, 6);
     if (text.length === 6) {
       setCode(text.split(""));
       setTimeout(onVerify, 400);
@@ -448,13 +626,19 @@ function TwoFAScreen({ onVerify, onBack }: { onVerify: () => void; onBack: () =>
           <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-5">
             <Smartphone size={22} className="text-primary" />
           </div>
-          <h1 className="font-display text-3xl text-foreground mb-2">Verify identity</h1>
+          <h1 className="font-display text-3xl text-foreground mb-2">
+            Verify identity
+          </h1>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Enter the 6-digit code from your authenticator app to continue.
+            Enter the 6-digit code from your authenticator app
+            to continue.
           </p>
         </div>
 
-        <div className="flex gap-1.5 mb-5 w-full" onPaste={handlePaste}>
+        <div
+          className="flex gap-1.5 mb-5 w-full"
+          onPaste={handlePaste}
+        >
           {code.map((d, i) => (
             <input
               key={i}
@@ -472,15 +656,25 @@ function TwoFAScreen({ onVerify, onBack }: { onVerify: () => void; onBack: () =>
           <div
             onClick={() => setRemember(!remember)}
             className={`w-4 h-4 mt-0.5 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
-              remember ? "bg-primary border-primary" : "border-border"
+              remember
+                ? "bg-primary border-primary"
+                : "border-border"
             }`}
           >
-            {remember && <Check size={10} className="text-primary-foreground" />}
+            {remember && (
+              <Check
+                size={10}
+                className="text-primary-foreground"
+              />
+            )}
           </div>
           <div>
-            <span className="text-sm text-foreground">Remember this device for 30 days</span>
+            <span className="text-sm text-foreground">
+              Remember this device for 30 days
+            </span>
             <p className="text-xs text-muted-foreground mt-0.5">
-              You won&apos;t need to verify again on this device for 30 days.
+              You won&apos;t need to verify again on this device
+              for 30 days.
             </p>
           </div>
         </label>
@@ -503,11 +697,27 @@ function TwoFAScreen({ onVerify, onBack }: { onVerify: () => void; onBack: () =>
 // ── Sidebar Nav ───────────────────────────────────────────────────────────────
 
 const NAV_ITEMS = [
-  { id: "dashboard" as View, label: "Dashboard", icon: LayoutDashboard },
-  { id: "payment" as View, label: "Make a Payment", icon: CreditCard },
-  { id: "history" as View, label: "Payment History", icon: Clock },
+  {
+    id: "dashboard" as View,
+    label: "Dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    id: "payment" as View,
+    label: "Make a Payment",
+    icon: CreditCard,
+  },
+  {
+    id: "history" as View,
+    label: "Payment History",
+    icon: Clock,
+  },
   { id: "payors" as View, label: "Guest Payors", icon: Users },
-  { id: "notifications" as View, label: "Notifications", icon: Bell },
+  {
+    id: "notifications" as View,
+    label: "Notifications",
+    icon: Bell,
+  },
   { id: "account" as View, label: "Account", icon: Settings },
 ];
 
@@ -560,8 +770,12 @@ function Sidebar({
             JH
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-medium text-foreground truncate">Jordan Hayes</p>
-            <p className="text-xs text-muted-foreground truncate">jordan.hayes@gmail.com</p>
+            <p className="text-xs font-medium text-foreground truncate">
+              Jordan Hayes
+            </p>
+            <p className="text-xs text-muted-foreground truncate">
+              jordan.hayes@gmail.com
+            </p>
           </div>
           <button
             onClick={onLogout}
@@ -587,11 +801,15 @@ function MobileHeader({
   isDark: boolean;
   toggleDark: () => void;
 }) {
-  const title = NAV_ITEMS.find((n) => n.id === view)?.label ?? "Due Notice";
+  const title =
+    NAV_ITEMS.find((n) => n.id === view)?.label ?? "Due Notice";
   return (
     <header className="md:hidden sticky top-0 z-10 flex items-center justify-between px-4 py-3.5 bg-muted dark:bg-[#001a47] border-b border-border">
       <DueNoticeLogo size="sm" />
-      <button onClick={toggleDark} className="text-muted-foreground hover:text-foreground transition-colors p-1">
+      <button
+        onClick={toggleDark}
+        className="text-muted-foreground hover:text-foreground transition-colors p-1"
+      >
         {isDark ? <Sun size={17} /> : <Moon size={17} />}
       </button>
     </header>
@@ -600,9 +818,19 @@ function MobileHeader({
 
 // ── Mobile Bottom Nav ─────────────────────────────────────────────────────────
 
-function BottomNav({ view, onNav }: { view: View; onNav: (v: View) => void }) {
+function BottomNav({
+  view,
+  onNav,
+}: {
+  view: View;
+  onNav: (v: View) => void;
+}) {
   const items = [
-    { id: "dashboard" as View, icon: LayoutDashboard, label: "Home" },
+    {
+      id: "dashboard" as View,
+      icon: LayoutDashboard,
+      label: "Home",
+    },
     { id: "payment" as View, icon: CreditCard, label: "Pay" },
     { id: "history" as View, icon: Clock, label: "History" },
     { id: "payors" as View, icon: Users, label: "Payors" },
@@ -615,7 +843,9 @@ function BottomNav({ view, onNav }: { view: View; onNav: (v: View) => void }) {
           key={item.id}
           onClick={() => onNav(item.id)}
           className={`flex-1 flex flex-col items-center gap-1 py-3 transition-colors ${
-            view === item.id ? "text-primary" : "text-muted-foreground"
+            view === item.id
+              ? "text-primary"
+              : "text-muted-foreground"
           }`}
         >
           <item.icon size={18} />
@@ -631,19 +861,22 @@ function BottomNav({ view, onNav }: { view: View; onNav: (v: View) => void }) {
 function DashboardView({ onPay }: { onPay: () => void }) {
   const totalBalance = LOANS.reduce((s, l) => s + l.balance, 0);
   const nextDueLoan = LOANS.reduce((min, l) =>
-    daysUntil(l.dueDate) < daysUntil(min.dueDate) ? l : min
+    daysUntil(l.dueDate) < daysUntil(min.dueDate) ? l : min,
   );
-  const nextPaymentTotal = LOANS.filter((l) => l.dueDate === nextDueLoan.dueDate).reduce(
-    (s, l) => s + l.minPayment,
-    0
-  );
+  const nextPaymentTotal = LOANS.filter(
+    (l) => l.dueDate === nextDueLoan.dueDate,
+  ).reduce((s, l) => s + l.minPayment, 0);
   const daysLeft = daysUntil(nextDueLoan.dueDate);
-  const lastPayment = PAYMENTS.find((p) => p.status === "completed");
+  const lastPayment = PAYMENTS.find(
+    (p) => p.status === "completed",
+  );
 
   // Streak: 8 of 12 months toward "Year of Discipline"
   const streakMonths = 8;
   const streakGoal = 12;
-  const streakPct = Math.round((streakMonths / streakGoal) * 100);
+  const streakPct = Math.round(
+    (streakMonths / streakGoal) * 100,
+  );
 
   return (
     <div className="p-5 md:p-8 max-w-4xl mx-auto space-y-5">
@@ -694,22 +927,31 @@ function DashboardView({ onPay }: { onPay: () => void }) {
           {/* Last paid */}
           {lastPayment && (
             <p className="text-[12px] font-bold tracking-[-0.24px] text-[#31b237] dark:text-[#51ca58]">
-              Paid {fmt(lastPayment.amount)} on {fmtDate(lastPayment.date)}
+              Paid {fmt(lastPayment.amount)} on{" "}
+              {fmtDate(lastPayment.date)}
             </p>
           )}
 
           {/* Next payment info */}
           <div className="flex items-center justify-between pt-1 border-t border-border">
             <div>
-              <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-bold">next payment</p>
-              <p className="text-[13px] text-foreground font-bold mt-0.5">{fmtDate(nextDueLoan.dueDate)}</p>
+              <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-bold">
+                next payment
+              </p>
+              <p className="text-[13px] text-foreground font-bold mt-0.5">
+                {fmtDate(nextDueLoan.dueDate)}
+              </p>
             </div>
             <div>
-              <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-bold">amount due</p>
-              <p className="text-[13px] text-foreground font-bold mt-0.5">{fmt(nextPaymentTotal)}</p>
+              <p className="text-[11px] text-muted-foreground uppercase tracking-wider font-bold">
+                amount due
+              </p>
+              <p className="text-[13px] text-foreground font-bold mt-0.5">
+                {fmt(nextPaymentTotal)}
+              </p>
             </div>
             {daysLeft <= 14 && (
-              <span className="text-[11px] font-bold px-2 py-1 rounded-full bg-[#f59e0b]/40 text-[#002159]">
+              <span className="text-[11px] font-bold px-2 py-1 rounded-full bg-[#f59e0b]/40 dark:bg-[#fde047]/30 text-[#002159] dark:text-[#fde047]">
                 {daysLeft}d left
               </span>
             )}
@@ -720,7 +962,10 @@ function DashboardView({ onPay }: { onPay: () => void }) {
             onClick={onPay}
             className="relative w-full rounded-[10px] py-3 text-[16px] font-bold text-foreground dark:text-white text-center transition-opacity hover:opacity-80"
           >
-            <span aria-hidden className="absolute inset-[-1px] rounded-[11px] border border-[#31b237] pointer-events-none" />
+            <span
+              aria-hidden
+              className="absolute inset-[-1px] rounded-[11px] border border-[#31b237] pointer-events-none"
+            />
             Pay Now:&nbsp;&nbsp;{fmt(nextPaymentTotal)}
           </button>
         </div>
@@ -743,7 +988,13 @@ function DashboardView({ onPay }: { onPay: () => void }) {
           />
         </div>
         <p className="text-[11px] text-muted-foreground mt-1.5">
-          Streaks like this don&apos;t happen by accident. <span className="text-[14px]" style={{ filter: "saturate(2)" }}>🔥</span>
+          Streaks like this don&apos;t happen by accident.{" "}
+          <span
+            className="text-[14px]"
+            style={{ filter: "saturate(2)" }}
+          >
+            🔥
+          </span>
         </p>
       </div>
 
@@ -754,7 +1005,10 @@ function DashboardView({ onPay }: { onPay: () => void }) {
         </h2>
         <div className="space-y-3">
           {LOANS.map((loan) => (
-            <div key={loan.id} className="bg-card border border-border rounded-[8px] px-4 py-3">
+            <div
+              key={loan.id}
+              className="bg-card border border-border rounded-[8px] px-4 py-3"
+            >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
@@ -765,34 +1019,48 @@ function DashboardView({ onPay }: { onPay: () => void }) {
                           : "bg-white/10 text-white/50"
                       }`}
                     >
-                      {loan.type === "federal" ? "Federal" : "Private"}
+                      {loan.type === "federal"
+                        ? "Federal"
+                        : "Private"}
                     </span>
                     {loan.status === "due-soon" && (
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider bg-[#f59e0b]/40 text-[#002159]">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider bg-[#f59e0b]/40 dark:bg-[#fde047]/30 text-[#002159] dark:text-[#fde047]">
                         Due Soon
                       </span>
                     )}
                   </div>
-                  <h3 className="font-bold text-foreground text-sm">{loan.name}</h3>
+                  <h3 className="font-bold text-foreground text-sm">
+                    {loan.name}
+                  </h3>
                   <p className="text-[11px] text-muted-foreground mt-0.5">
                     {loan.servicer} · {loan.interestRate}% APR
                   </p>
                 </div>
                 <div className="text-right shrink-0">
-                  <p className="font-mono font-bold text-foreground">{fmt(loan.balance)}</p>
-                  <p className="text-[11px] text-muted-foreground">balance</p>
+                  <p className="font-mono font-bold text-foreground">
+                    {fmt(loan.balance)}
+                  </p>
+                  <p className="text-[11px] text-muted-foreground">
+                    balance
+                  </p>
                 </div>
               </div>
               <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
                 <div>
-                  <p className="text-[11px] text-muted-foreground">Minimum due</p>
+                  <p className="text-[11px] text-muted-foreground">
+                    Minimum due
+                  </p>
                   <p className="font-mono text-sm font-bold text-foreground">
                     {fmt(loan.minPayment)}
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-[11px] text-muted-foreground">Due date</p>
-                  <p className="text-sm font-bold text-foreground">{fmtDate(loan.dueDate)}</p>
+                  <p className="text-[11px] text-muted-foreground">
+                    Due date
+                  </p>
+                  <p className="text-sm font-bold text-foreground">
+                    {fmtDate(loan.dueDate)}
+                  </p>
                 </div>
                 <button
                   onClick={onPay}
@@ -812,7 +1080,10 @@ function DashboardView({ onPay }: { onPay: () => void }) {
           <h2 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
             Recent Activity · Past 30 Days
           </h2>
-          <ChevronRight size={14} className="text-muted-foreground" />
+          <ChevronRight
+            size={14}
+            className="text-muted-foreground"
+          />
         </div>
         <div className="bg-card border border-border rounded-[8px] overflow-hidden">
           {PAYMENTS.slice(0, 4).map((p, i) => (
@@ -823,9 +1094,15 @@ function DashboardView({ onPay }: { onPay: () => void }) {
               }`}
             >
               <div className="flex-1 min-w-0">
-                <p className="text-[11px] text-muted-foreground">{fmtDate(p.date)}</p>
-                <p className="text-sm font-bold text-foreground truncate">{p.loan}</p>
-                <p className="text-[11px] text-muted-foreground">{p.payor}</p>
+                <p className="text-[11px] text-muted-foreground">
+                  {fmtDate(p.date)}
+                </p>
+                <p className="text-sm font-bold text-foreground truncate">
+                  {p.loan}
+                </p>
+                <p className="text-[11px] text-muted-foreground">
+                  {p.payor}
+                </p>
               </div>
               <div className="text-right shrink-0">
                 <p
@@ -833,13 +1110,15 @@ function DashboardView({ onPay }: { onPay: () => void }) {
                     p.status === "completed"
                       ? "text-[#51ca58]"
                       : p.status === "pending"
-                      ? "text-[#f59e0b]"
-                      : "text-red-400"
+                        ? "text-[#f59e0b]"
+                        : "text-red-400"
                   }`}
                 >
                   -{fmt(p.amount)}
                 </p>
-                <p className="text-[11px] text-muted-foreground capitalize">{p.status}</p>
+                <p className="text-[11px] text-muted-foreground capitalize">
+                  {p.status}
+                </p>
               </div>
             </div>
           ))}
@@ -853,26 +1132,41 @@ function DashboardView({ onPay }: { onPay: () => void }) {
 
 function PaymentView({ onDone }: { onDone: () => void }) {
   const [step, setStep] = useState(1);
-  const [selectedLoans, setSelectedLoans] = useState<string[]>([]);
+  const [selectedLoans, setSelectedLoans] = useState<string[]>(
+    [],
+  );
   const [amounts, setAmounts] = useState<
-    Record<string, { type: "min" | "custom" | "full"; custom: string }>
+    Record<
+      string,
+      { type: "min" | "custom" | "full"; custom: string }
+    >
   >({});
-  const [payDate, setPayDate] = useState(new Date().toISOString().split("T")[0]);
+  const [payDate, setPayDate] = useState(
+    new Date().toISOString().split("T")[0],
+  );
   const [bankId, setBankId] = useState(BANK_ACCOUNTS[0].id);
-  const [payorType, setPayorType] = useState<"self" | string>("self");
+  const [payorType, setPayorType] = useState<"self" | string>(
+    "self",
+  );
   const [agreed, setAgreed] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [requestSent, setRequestSent] = useState(false);
   const [confirmRef] = useState(
-    () => `LS-${Date.now().toString(36).toUpperCase().slice(-8)}`
+    () =>
+      `LS-${Date.now().toString(36).toUpperCase().slice(-8)}`,
   );
 
   const toggleLoan = (id: string) => {
     setSelectedLoans((prev) =>
-      prev.includes(id) ? prev.filter((l) => l !== id) : [...prev, id]
+      prev.includes(id)
+        ? prev.filter((l) => l !== id)
+        : [...prev, id],
     );
     if (!amounts[id]) {
-      setAmounts((prev) => ({ ...prev, [id]: { type: "min", custom: "" } }));
+      setAmounts((prev) => ({
+        ...prev,
+        [id]: { type: "min", custom: "" },
+      }));
     }
   };
 
@@ -888,19 +1182,23 @@ function PaymentView({ onDone }: { onDone: () => void }) {
     return loan ? s + getAmount(loan) : s;
   }, 0);
 
-  const selectedBank = BANK_ACCOUNTS.find((b) => b.id === bankId)!;
+  const selectedBank = BANK_ACCOUNTS.find(
+    (b) => b.id === bankId,
+  )!;
   const selectedPayorName =
     payorType === "self"
       ? "Jordan Hayes (you)"
-      : GUEST_PAYORS_INIT.find((g) => g.id === payorType)?.name ?? "";
+      : (GUEST_PAYORS_INIT.find((g) => g.id === payorType)
+          ?.name ?? "");
 
   const isAfterDue = LOANS.some(
-    (l) => selectedLoans.includes(l.id) && payDate > l.dueDate
+    (l) => selectedLoans.includes(l.id) && payDate > l.dueDate,
   );
 
-  const guestPayor = payorType !== "self"
-    ? GUEST_PAYORS_INIT.find((g) => g.id === payorType)
-    : null;
+  const guestPayor =
+    payorType !== "self"
+      ? GUEST_PAYORS_INIT.find((g) => g.id === payorType)
+      : null;
 
   if (requestSent && guestPayor) {
     return (
@@ -908,11 +1206,16 @@ function PaymentView({ onDone }: { onDone: () => void }) {
         <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
           <Bell size={28} className="text-primary" />
         </div>
-        <h2 className="font-display text-2xl text-foreground mb-2">Request sent</h2>
+        <h2 className="font-display text-2xl text-foreground mb-2">
+          Request sent
+        </h2>
         <p className="text-muted-foreground text-sm mb-1">
-          {guestPayor.name} has been notified and can complete this payment.
+          {guestPayor.name} has been notified and can complete
+          this payment.
         </p>
-        <p className="text-xs text-muted-foreground mb-8 font-mono">{guestPayor.email}</p>
+        <p className="text-xs text-muted-foreground mb-8 font-mono">
+          {guestPayor.email}
+        </p>
         <button
           onClick={onDone}
           className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-xl text-sm font-medium transition-colors"
@@ -927,15 +1230,23 @@ function PaymentView({ onDone }: { onDone: () => void }) {
     return (
       <div className="p-8 max-w-xl mx-auto flex flex-col items-center justify-center min-h-[65vh] text-center">
         <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-6">
-          <CheckCircle2 size={32} className="text-green-600 dark:text-green-400" />
+          <CheckCircle2
+            size={32}
+            className="text-green-600 dark:text-green-400"
+          />
         </div>
-        <h2 className="font-display text-2xl text-foreground mb-2">Payment submitted</h2>
+        <h2 className="font-display text-2xl text-foreground mb-2">
+          Payment submitted
+        </h2>
         <p className="text-muted-foreground text-sm mb-1">
-          {fmt(totalPayment)} will process within 1–2 business days.
+          {fmt(totalPayment)} will process within 1–2 business
+          days.
         </p>
         <p className="text-xs text-muted-foreground mb-8">
           Confirmation:{" "}
-          <span className="font-mono text-foreground">{confirmRef}</span>
+          <span className="font-mono text-foreground">
+            {confirmRef}
+          </span>
         </p>
         <button
           onClick={onDone}
@@ -947,13 +1258,20 @@ function PaymentView({ onDone }: { onDone: () => void }) {
     );
   }
 
-  const STEPS = ["Select loans", "Schedule", "Review", "Disclosures"];
+  const STEPS = [
+    "Select loans",
+    "Schedule",
+    "Review",
+    "Disclosures",
+  ];
 
   return (
     <div className="p-5 md:p-8 max-w-2xl mx-auto space-y-5">
       {/* Step indicator — bar style matching Figma */}
       <div>
-        <h1 className="font-display text-2xl md:text-3xl text-foreground mb-4">Make a Payment</h1>
+        <h1 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+          Make a Payment
+        </h1>
         <div className="flex items-center gap-3 mb-1">
           {STEPS.map((_, i) => (
             <div
@@ -962,8 +1280,8 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                 step > i + 1
                   ? "bg-[#22c55e]"
                   : step === i + 1
-                  ? "bg-[#4ade80]"
-                  : "bg-[#6b7280]/40"
+                    ? "bg-[#4ade80]"
+                    : "bg-[#6b7280]/40"
               }`}
             />
           ))}
@@ -977,24 +1295,32 @@ function PaymentView({ onDone }: { onDone: () => void }) {
       {step === 1 && (
         <div className="space-y-4">
           <p className="text-sm text-muted-foreground">
-            Choose which loans to include and the payment amount for each.
+            Choose which loans to include and the payment amount
+            for each.
           </p>
           {LOANS.map((loan) => (
             <div
               key={loan.id}
               className={`bg-card border rounded-xl p-5 transition-colors ${
-                selectedLoans.includes(loan.id) ? "border-primary" : "border-border"
+                selectedLoans.includes(loan.id)
+                  ? "border-primary"
+                  : "border-border"
               }`}
             >
               <div className="flex items-start gap-3">
                 <div
                   onClick={() => toggleLoan(loan.id)}
                   className={`w-4 h-4 mt-0.5 rounded border-2 flex items-center justify-center cursor-pointer shrink-0 transition-colors ${
-                    selectedLoans.includes(loan.id) ? "bg-primary border-primary" : "border-border"
+                    selectedLoans.includes(loan.id)
+                      ? "bg-primary border-primary"
+                      : "border-border"
                   }`}
                 >
                   {selectedLoans.includes(loan.id) && (
-                    <Check size={10} className="text-primary-foreground" />
+                    <Check
+                      size={10}
+                      className="text-primary-foreground"
+                    />
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -1008,8 +1334,10 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                       </p>
                       <p className="text-xs text-muted-foreground mt-0.5">
                         Balance:{" "}
-                        <span className="font-mono">{fmt(loan.balance)}</span> · Due{" "}
-                        {fmtDate(loan.dueDate)}
+                        <span className="font-mono">
+                          {fmt(loan.balance)}
+                        </span>{" "}
+                        · Due {fmtDate(loan.dueDate)}
                       </p>
                     </div>
                   </div>
@@ -1019,9 +1347,18 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                       <div className="flex gap-2">
                         {(
                           [
-                            { type: "min" as const, label: `Min — ${fmt(loan.minPayment)}` },
-                            { type: "full" as const, label: `Payoff — ${fmt(loan.balance)}` },
-                            { type: "custom" as const, label: "Custom" },
+                            {
+                              type: "min" as const,
+                              label: `Min — ${fmt(loan.minPayment)}`,
+                            },
+                            {
+                              type: "full" as const,
+                              label: `Payoff — ${fmt(loan.balance)}`,
+                            },
+                            {
+                              type: "custom" as const,
+                              label: "Custom",
+                            },
                           ] as const
                         ).map((opt) => (
                           <button
@@ -1029,11 +1366,15 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                             onClick={() =>
                               setAmounts((prev) => ({
                                 ...prev,
-                                [loan.id]: { ...prev[loan.id], type: opt.type },
+                                [loan.id]: {
+                                  ...prev[loan.id],
+                                  type: opt.type,
+                                },
                               }))
                             }
                             className={`flex-1 py-1.5 px-1 rounded-lg text-xs font-medium border transition-colors ${
-                              (amounts[loan.id]?.type ?? "min") === opt.type
+                              (amounts[loan.id]?.type ??
+                                "min") === opt.type
                                 ? "bg-primary text-primary-foreground border-primary"
                                 : "bg-input-background border-border text-muted-foreground hover:text-foreground"
                             }`}
@@ -1051,11 +1392,16 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                             type="number"
                             min="1"
                             placeholder="0.00"
-                            value={amounts[loan.id]?.custom ?? ""}
+                            value={
+                              amounts[loan.id]?.custom ?? ""
+                            }
                             onChange={(e) =>
                               setAmounts((prev) => ({
                                 ...prev,
-                                [loan.id]: { ...prev[loan.id], custom: e.target.value },
+                                [loan.id]: {
+                                  ...prev[loan.id],
+                                  custom: e.target.value,
+                                },
                               }))
                             }
                             className="w-full pl-8 pr-4 py-2.5 rounded-lg bg-input-background border border-border text-foreground text-sm font-mono focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary"
@@ -1071,7 +1417,9 @@ function PaymentView({ onDone }: { onDone: () => void }) {
 
           {selectedLoans.length > 0 && (
             <div className="bg-primary/8 border border-primary/20 rounded-xl px-4 py-3.5 flex items-center justify-between">
-              <span className="text-sm text-foreground">Total payment</span>
+              <span className="text-sm text-foreground">
+                Total payment
+              </span>
               <span className="font-mono font-medium text-foreground text-base">
                 {fmt(totalPayment)}
               </span>
@@ -1105,7 +1453,8 @@ function PaymentView({ onDone }: { onDone: () => void }) {
             {isAfterDue && (
               <p className="text-xs text-amber-600 dark:text-amber-400 mt-2 flex items-center gap-1.5">
                 <AlertTriangle size={12} />
-                This date is after a due date. Late fees may apply.
+                This date is after a due date. Late fees may
+                apply.
               </p>
             )}
           </div>
@@ -1126,16 +1475,23 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                 >
                   <div
                     className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors shrink-0 ${
-                      bankId === b.id ? "border-primary" : "border-border"
+                      bankId === b.id
+                        ? "border-primary"
+                        : "border-border"
                     }`}
                   >
                     {bankId === b.id && (
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     )}
                   </div>
-                  <Building2 size={14} className="text-muted-foreground shrink-0" />
+                  <Building2
+                    size={14}
+                    className="text-muted-foreground shrink-0"
+                  />
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-foreground">{b.name}</p>
+                    <p className="text-sm font-medium text-foreground">
+                      {b.name}
+                    </p>
                     <p className="text-xs text-muted-foreground font-mono">
                       ···· {b.last4} · {b.type}
                       {b.isPrimary ? " · Primary" : ""}
@@ -1159,9 +1515,16 @@ function PaymentView({ onDone }: { onDone: () => void }) {
             <div className="space-y-2">
               {(
                 [
-                  { id: "self", name: "Jordan Hayes", sub: "You (account holder)", initials: "JH" },
+                  {
+                    id: "self",
+                    name: "Jordan Hayes",
+                    sub: "You (account holder)",
+                    initials: "JH",
+                  },
                   ...GUEST_PAYORS_INIT.filter(
-                    (g) => g.status === "active" && g.permissions.includes("make_payments")
+                    (g) =>
+                      g.status === "active" &&
+                      g.permissions.includes("make_payments"),
                   ).map((g) => ({
                     id: g.id,
                     name: g.name,
@@ -1171,7 +1534,12 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                       .map((n) => n[0])
                       .join(""),
                   })),
-                ] as { id: string; name: string; sub: string; initials: string }[]
+                ] as {
+                  id: string;
+                  name: string;
+                  sub: string;
+                  initials: string;
+                }[]
               ).map((p) => (
                 <label
                   key={p.id}
@@ -1183,7 +1551,9 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                 >
                   <div
                     className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors shrink-0 ${
-                      payorType === p.id ? "border-primary" : "border-border"
+                      payorType === p.id
+                        ? "border-primary"
+                        : "border-border"
                     }`}
                   >
                     {payorType === p.id && (
@@ -1200,8 +1570,12 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                     {p.initials}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-foreground">{p.name}</p>
-                    <p className="text-xs text-muted-foreground">{p.sub}</p>
+                    <p className="text-sm font-medium text-foreground">
+                      {p.name}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {p.sub}
+                    </p>
                   </div>
                   <input
                     type="radio"
@@ -1222,7 +1596,11 @@ function PaymentView({ onDone }: { onDone: () => void }) {
               Back
             </button>
             <button
-              onClick={() => payorType !== "self" ? setRequestSent(true) : setStep(3)}
+              onClick={() =>
+                payorType !== "self"
+                  ? setRequestSent(true)
+                  : setStep(3)
+              }
               className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl py-3 text-sm font-medium transition-colors"
             >
               {payorType !== "self" ? "Send Request" : "Review"}
@@ -1235,15 +1613,23 @@ function PaymentView({ onDone }: { onDone: () => void }) {
       {step === 3 && (
         <div className="space-y-5">
           <p className="text-sm text-muted-foreground">
-            Review every detail before submitting. Payments cannot be cancelled once processed.
+            Review every detail before submitting. Payments
+            cannot be cancelled once processed.
           </p>
 
           <div className="bg-card border border-border rounded-xl overflow-hidden">
             {[
-              { label: "Total amount", value: fmt(totalPayment), mono: true, large: true },
+              {
+                label: "Total amount",
+                value: fmt(totalPayment),
+                mono: true,
+                large: true,
+              },
               {
                 label: "Payment date",
-                value: new Date(payDate + "T12:00:00").toLocaleDateString("en-US", {
+                value: new Date(
+                  payDate + "T12:00:00",
+                ).toLocaleDateString("en-US", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
@@ -1262,7 +1648,9 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                   i < 3 ? "border-b border-border" : ""
                 }`}
               >
-                <span className="text-sm text-muted-foreground">{row.label}</span>
+                <span className="text-sm text-muted-foreground">
+                  {row.label}
+                </span>
                 <span
                   className={`text-sm font-medium text-foreground ${
                     row.mono ? "font-mono" : ""
@@ -1284,19 +1672,26 @@ function PaymentView({ onDone }: { onDone: () => void }) {
                 <div
                   key={id}
                   className={`flex items-center justify-between px-5 py-4 ${
-                    i < selectedLoans.length - 1 ? "border-b border-border" : ""
+                    i < selectedLoans.length - 1
+                      ? "border-b border-border"
+                      : ""
                   }`}
                 >
-                  <span className="text-sm text-foreground">{loan.name}</span>
-                  <span className="font-mono text-sm text-foreground">{fmt(getAmount(loan))}</span>
+                  <span className="text-sm text-foreground">
+                    {loan.name}
+                  </span>
+                  <span className="font-mono text-sm text-foreground">
+                    {fmt(getAmount(loan))}
+                  </span>
                 </div>
               );
             })}
           </div>
 
           <div className="bg-muted/40 rounded-xl px-4 py-3.5 text-xs text-muted-foreground leading-relaxed">
-            Payments typically process within 1–2 business days. If your payment date falls on a
-            weekend or federal holiday, it will be processed the next business day.
+            Payments typically process within 1–2 business days.
+            If your payment date falls on a weekend or federal
+            holiday, it will be processed the next business day.
           </div>
 
           <div className="flex gap-3 pt-1">
@@ -1307,7 +1702,10 @@ function PaymentView({ onDone }: { onDone: () => void }) {
               Back
             </button>
             <button
-              onClick={() => { setAgreed(false); setStep(4); }}
+              onClick={() => {
+                setAgreed(false);
+                setStep(4);
+              }}
               className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl py-3 text-sm font-medium transition-colors"
             >
               Review Disclosures
@@ -1317,111 +1715,160 @@ function PaymentView({ onDone }: { onDone: () => void }) {
       )}
 
       {/* Step 4 — Disclosures */}
-      {step === 4 && (() => {
-        const serviceFee = totalPayment * 0.015;
-        const totalWithFee = totalPayment + serviceFee;
-        return (
-          <div className="space-y-4">
-            {/* Header */}
-            <div className="px-1">
-              <p className="text-[13px] font-black uppercase tracking-[0.39px] text-foreground">
-                Review before continuing
-              </p>
-              <p className="text-[12px] text-muted-foreground mt-0.5">
-                Read disclosures, accept terms, and confirm your payment.
-              </p>
-            </div>
-
-            {/* Scrollable disclosure panel */}
-            <div className="bg-[#01337d] rounded-[8px] overflow-hidden relative">
-              <div
-                className="overflow-y-auto max-h-[280px] px-4 py-3 space-y-3 text-[11px] leading-[16px] text-[#f9fafb] [scrollbar-width:thin] [scrollbar-color:#0967d2_rgba(62,76,89,0.5)]"
-              >
-                <p className="font-black uppercase tracking-wider text-[11px]">Payment Authorization</p>
-                <p className="font-normal">
-                  By submitting this payment, you authorize Due Notice to initiate an ACH debit from your designated bank account. This authorization remains in effect until cancelled in writing. Payments submitted before 5:00 PM ET on a business day will be processed the same day.
+      {step === 4 &&
+        (() => {
+          const serviceFee = totalPayment * 0.015;
+          const totalWithFee = totalPayment + serviceFee;
+          return (
+            <div className="space-y-4">
+              {/* Header */}
+              <div className="px-1">
+                <p className="text-[13px] font-black uppercase tracking-[0.39px] text-foreground">
+                  Review before continuing
                 </p>
-
-                <p className="font-black uppercase tracking-wider text-[11px] pt-1">Service Fee Disclosure</p>
-                <p className="font-normal">
-                  A service fee of 1.5% of your total payment amount will be charged for each transaction. This fee is non-refundable. Borrowers enrolled in AutoPay who have made 3 or more consecutive on-time payments are eligible for a fee waiver.
-                </p>
-
-                <p className="font-black uppercase tracking-wider text-[11px] pt-1">Bundled Payment Terms</p>
-                <p className="font-normal">
-                  Payments made through Due Notice are applied proportionally across all active loan accounts. Individual loan servicers may take 1–3 business days to reflect updated balances. Due Notice is not responsible for servicer-side processing delays.
-                </p>
-
-                <p className="font-black uppercase tracking-wider text-[11px] pt-1">Cancellation Policy</p>
-                <p className="font-normal">
-                  Scheduled payments may be cancelled up to 2 business days before the scheduled date. Same-day payments cannot be cancelled once submitted. To cancel a scheduled payment, visit the Payments tab or contact support.
-                </p>
-
-                <p className="font-black uppercase tracking-wider text-[11px] pt-1">Data & Privacy</p>
-                <p className="font-normal">
-                  Your banking credentials are encrypted and stored using bank-level security. Due Notice does not sell or share your financial data with third parties. See our full Privacy Policy at duenotice.com/privacy.
+                <p className="text-[12px] text-muted-foreground mt-0.5">
+                  Read disclosures, accept terms, and confirm
+                  your payment.
                 </p>
               </div>
-              {/* Fade-out gradient at bottom to signal scrollability */}
-              <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#01337d] to-transparent" />
-            </div>
 
-            {/* Checkbox agreement */}
-            <div
-              className={`border rounded-[4px] p-3 transition-colors ${
-                agreed ? "border-[#f59e0b] bg-[#002159]" : "border-border bg-card"
-              }`}
-            >
-              <div className="flex items-start gap-3">
-                <button
-                  onClick={() => setAgreed(!agreed)}
-                  className={`w-5 h-5 mt-0.5 rounded-[4px] border-2 flex items-center justify-center shrink-0 transition-colors ${
-                    agreed ? "bg-[#f59e0b] border-[#f59e0b]" : "bg-background border-[#f59e0b]"
-                  }`}
-                >
-                  {agreed && <Check size={11} className="text-white" />}
-                </button>
-                <div className="text-[12px] text-[#f9fafb] leading-[1.4]">
-                  <p className="font-bold">I have read the disclosures and agree to</p>
-                  <p className="font-normal mt-1">
-                    authorize the ACH debit of{" "}
-                    <span className="font-bold font-mono">{fmt(totalWithFee)}</span>
+              {/* Scrollable disclosure panel */}
+              <div className="bg-[#01337d] rounded-[8px] overflow-hidden relative">
+                <div className="overflow-y-auto max-h-[280px] px-4 py-3 space-y-3 text-[11px] leading-[16px] text-[#f9fafb] [scrollbar-width:thin] [scrollbar-color:#0967d2_rgba(62,76,89,0.5)]">
+                  <p className="font-black uppercase tracking-wider text-[11px]">
+                    Payment Authorization
                   </p>
                   <p className="font-normal">
-                    acknowledge the{" "}
-                    <span className="font-bold">1.5% service fee of {fmt(serviceFee)}</span>
+                    By submitting this payment, you authorize
+                    Due Notice to initiate an ACH debit from
+                    your designated bank account. This
+                    authorization remains in effect until
+                    cancelled in writing. Payments submitted
+                    before 5:00 PM ET on a business day will be
+                    processed the same day.
+                  </p>
+
+                  <p className="font-black uppercase tracking-wider text-[11px] pt-1">
+                    Service Fee Disclosure
                   </p>
                   <p className="font-normal">
-                    the{" "}
-                    <span className="font-bold underline cursor-pointer">Terms of Service and Privacy Policy</span>
+                    A service fee of 1.5% of your total payment
+                    amount will be charged for each transaction.
+                    This fee is non-refundable. Borrowers
+                    enrolled in AutoPay who have made 3 or more
+                    consecutive on-time payments are eligible
+                    for a fee waiver.
+                  </p>
+
+                  <p className="font-black uppercase tracking-wider text-[11px] pt-1">
+                    Bundled Payment Terms
+                  </p>
+                  <p className="font-normal">
+                    Payments made through Due Notice are applied
+                    proportionally across all active loan
+                    accounts. Individual loan servicers may take
+                    1–3 business days to reflect updated
+                    balances. Due Notice is not responsible for
+                    servicer-side processing delays.
+                  </p>
+
+                  <p className="font-black uppercase tracking-wider text-[11px] pt-1">
+                    Cancellation Policy
+                  </p>
+                  <p className="font-normal">
+                    Scheduled payments may be cancelled up to 2
+                    business days before the scheduled date.
+                    Same-day payments cannot be cancelled once
+                    submitted. To cancel a scheduled payment,
+                    visit the Payments tab or contact support.
+                  </p>
+
+                  <p className="font-black uppercase tracking-wider text-[11px] pt-1">
+                    Data & Privacy
+                  </p>
+                  <p className="font-normal">
+                    Your banking credentials are encrypted and
+                    stored using bank-level security. Due Notice
+                    does not sell or share your financial data
+                    with third parties. See our full Privacy
+                    Policy at duenotice.com/privacy.
                   </p>
                 </div>
+                {/* Fade-out gradient at bottom to signal scrollability */}
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#01337d] to-transparent" />
               </div>
-            </div>
 
-            {/* Confirm Payment button — matches Figma: green tinted bg, muted text when unchecked */}
-            <div className="bg-[#002159] rounded-[8px] p-3">
-              <button
-                onClick={() => agreed && setConfirmed(true)}
-                className={`w-full rounded-[10px] py-3 text-[16px] font-bold text-center transition-all ${
+              {/* Checkbox agreement */}
+              <div
+                className={`border rounded-[4px] p-3 transition-colors ${
                   agreed
-                    ? "bg-[rgba(34,197,94,0.5)] text-white hover:bg-[rgba(34,197,94,0.65)] cursor-pointer"
-                    : "bg-[rgba(34,197,94,0.3)] text-white/50 cursor-not-allowed"
+                    ? "border-[#f59e0b] bg-[#002159]"
+                    : "border-border bg-card"
                 }`}
               >
-                Confirm Payment:&nbsp;&nbsp;{fmt(totalWithFee)}
+                <div className="flex items-start gap-3">
+                  <button
+                    onClick={() => setAgreed(!agreed)}
+                    className={`w-5 h-5 mt-0.5 rounded-[4px] border-2 flex items-center justify-center shrink-0 transition-colors ${
+                      agreed
+                        ? "bg-[#f59e0b] border-[#f59e0b]"
+                        : "bg-background border-[#f59e0b]"
+                    }`}
+                  >
+                    {agreed && (
+                      <Check size={11} className="text-white" />
+                    )}
+                  </button>
+                  <div className="text-[12px] text-[#f9fafb] leading-[1.4]">
+                    <p className="font-bold">
+                      I have read the disclosures and agree to
+                    </p>
+                    <p className="font-normal mt-1">
+                      authorize the ACH debit of{" "}
+                      <span className="font-bold font-mono">
+                        {fmt(totalWithFee)}
+                      </span>
+                    </p>
+                    <p className="font-normal">
+                      acknowledge the{" "}
+                      <span className="font-bold">
+                        1.5% service fee of {fmt(serviceFee)}
+                      </span>
+                    </p>
+                    <p className="font-normal">
+                      the{" "}
+                      <span className="font-bold underline cursor-pointer">
+                        Terms of Service and Privacy Policy
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Confirm Payment button — matches Figma: green tinted bg, muted text when unchecked */}
+              <div className="bg-[#002159] rounded-[8px] p-3">
+                <button
+                  onClick={() => agreed && setConfirmed(true)}
+                  className={`w-full rounded-[10px] py-3 text-[16px] font-bold text-center transition-all ${
+                    agreed
+                      ? "bg-[rgba(34,197,94,0.5)] text-white hover:bg-[rgba(34,197,94,0.65)] cursor-pointer"
+                      : "bg-[rgba(34,197,94,0.3)] text-white/50 cursor-not-allowed"
+                  }`}
+                >
+                  Confirm Payment:&nbsp;&nbsp;
+                  {fmt(totalWithFee)}
+                </button>
+              </div>
+
+              <button
+                onClick={() => setStep(3)}
+                className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+              >
+                ← Back to review
               </button>
             </div>
-
-            <button
-              onClick={() => setStep(3)}
-              className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
-            >
-              ← Back to review
-            </button>
-          </div>
-        );
-      })()}
+          );
+        })()}
     </div>
   );
 }
@@ -1429,21 +1876,29 @@ function PaymentView({ onDone }: { onDone: () => void }) {
 // ── History View ──────────────────────────────────────────────────────────────
 
 function HistoryView() {
-  const [filter, setFilter] = useState<"all" | "completed" | "pending" | "failed">("all");
+  const [filter, setFilter] = useState<
+    "all" | "completed" | "pending" | "failed"
+  >("all");
   const filtered =
-    filter === "all" ? PAYMENTS : PAYMENTS.filter((p) => p.status === filter);
+    filter === "all"
+      ? PAYMENTS
+      : PAYMENTS.filter((p) => p.status === filter);
 
   return (
     <div className="p-5 md:p-8 max-w-3xl mx-auto space-y-5">
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-2xl md:text-3xl text-foreground">Payment History</h1>
+        <h1 className="font-display text-2xl md:text-3xl text-foreground">
+          Payment History
+        </h1>
         <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium border border-border text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors">
           <Download size={12} /> Export
         </button>
       </div>
 
       <div className="flex gap-2 flex-wrap">
-        {(["all", "completed", "pending", "failed"] as const).map((f) => (
+        {(
+          ["all", "completed", "pending", "failed"] as const
+        ).map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
@@ -1460,11 +1915,16 @@ function HistoryView() {
 
       <div className="bg-card border border-border rounded-xl overflow-hidden">
         <div className="hidden sm:grid grid-cols-4 px-5 py-3 border-b border-border">
-          {["Date", "Description", "Payor", "Amount"].map((h) => (
-            <p key={h} className="text-xs text-muted-foreground uppercase tracking-wider">
-              {h}
-            </p>
-          ))}
+          {["Date", "Description", "Payor", "Amount"].map(
+            (h) => (
+              <p
+                key={h}
+                className="text-xs text-muted-foreground uppercase tracking-wider"
+              >
+                {h}
+              </p>
+            ),
+          )}
         </div>
         {filtered.length === 0 ? (
           <div className="px-5 py-14 text-center text-sm text-muted-foreground">
@@ -1475,25 +1935,33 @@ function HistoryView() {
             <div
               key={p.id}
               className={`flex sm:grid sm:grid-cols-4 items-center gap-3 px-5 py-4 ${
-                i < filtered.length - 1 ? "border-b border-border" : ""
+                i < filtered.length - 1
+                  ? "border-b border-border"
+                  : ""
               }`}
             >
-              <p className="font-mono text-sm text-foreground">{fmtDate(p.date)}</p>
+              <p className="font-mono text-sm text-foreground">
+                {fmtDate(p.date)}
+              </p>
               <div>
-                <p className="text-sm text-foreground">{p.loan}</p>
+                <p className="text-sm text-foreground">
+                  {p.loan}
+                </p>
                 <span
                   className={`text-xs capitalize ${
                     p.status === "completed"
                       ? "text-green-600 dark:text-green-400"
                       : p.status === "pending"
-                      ? "text-amber-600 dark:text-amber-400"
-                      : "text-red-600 dark:text-red-400"
+                        ? "text-amber-600 dark:text-amber-400"
+                        : "text-red-600 dark:text-red-400"
                   }`}
                 >
                   {p.status}
                 </span>
               </div>
-              <p className="text-sm text-muted-foreground hidden sm:block">{p.payor}</p>
+              <p className="text-sm text-muted-foreground hidden sm:block">
+                {p.payor}
+              </p>
               <p className="font-mono text-sm font-medium text-foreground ml-auto sm:ml-0">
                 {fmt(p.amount)}
               </p>
@@ -1508,15 +1976,21 @@ function HistoryView() {
 // ── Guest Payors View ─────────────────────────────────────────────────────────
 
 function PayorsView() {
-  const [payors, setPayors] = useState<GuestPayor[]>(GUEST_PAYORS_INIT);
+  const [payors, setPayors] = useState<GuestPayor[]>(
+    GUEST_PAYORS_INIT,
+  );
   const [showAdd, setShowAdd] = useState(false);
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
-  const [newPerms, setNewPerms] = useState<string[]>(["make_payments"]);
+  const [newPerms, setNewPerms] = useState<string[]>([
+    "make_payments",
+  ]);
 
   const togglePerm = (p: string) =>
     setNewPerms((prev) =>
-      prev.includes(p) ? prev.filter((x) => x !== p) : [...prev, p]
+      prev.includes(p)
+        ? prev.filter((x) => x !== p)
+        : [...prev, p],
     );
 
   const addPayor = () => {
@@ -1538,7 +2012,8 @@ function PayorsView() {
     setShowAdd(false);
   };
 
-  const revoke = (id: string) => setPayors((prev) => prev.filter((p) => p.id !== id));
+  const revoke = (id: string) =>
+    setPayors((prev) => prev.filter((p) => p.id !== id));
 
   const PERM_LABELS: Record<string, string> = {
     view_balances: "View loan balances",
@@ -1550,9 +2025,12 @@ function PayorsView() {
     <div className="p-5 md:p-8 max-w-3xl mx-auto space-y-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="font-display text-2xl md:text-3xl text-foreground">Guest Payors</h1>
+          <h1 className="font-display text-2xl md:text-3xl text-foreground">
+            Guest Payors
+          </h1>
           <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-            Invite trusted people to make payments on your behalf. They only see what you allow.
+            Invite trusted people to make payments on your
+            behalf. They only see what you allow.
           </p>
         </div>
         <button
@@ -1565,10 +2043,14 @@ function PayorsView() {
 
       {showAdd && (
         <div className="bg-card border border-primary/40 rounded-xl p-5 space-y-4">
-          <h3 className="font-medium text-foreground text-sm">Invite a guest payor</h3>
+          <h3 className="font-medium text-foreground text-sm">
+            Invite a guest payor
+          </h3>
           <div className="grid sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs text-muted-foreground mb-1.5">Full name</label>
+              <label className="block text-xs text-muted-foreground mb-1.5">
+                Full name
+              </label>
               <input
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
@@ -1577,7 +2059,9 @@ function PayorsView() {
               />
             </div>
             <div>
-              <label className="block text-xs text-muted-foreground mb-1.5">Email address</label>
+              <label className="block text-xs text-muted-foreground mb-1.5">
+                Email address
+              </label>
               <input
                 value={newEmail}
                 onChange={(e) => setNewEmail(e.target.value)}
@@ -1593,21 +2077,33 @@ function PayorsView() {
               Permissions — choose what this person can do
             </label>
             <div className="space-y-2.5">
-              {Object.entries(PERM_LABELS).map(([key, label]) => (
-                <label key={key} className="flex items-center gap-2.5 cursor-pointer">
-                  <div
-                    onClick={() => togglePerm(key)}
-                    className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
-                      newPerms.includes(key) ? "bg-primary border-primary" : "border-border"
-                    }`}
+              {Object.entries(PERM_LABELS).map(
+                ([key, label]) => (
+                  <label
+                    key={key}
+                    className="flex items-center gap-2.5 cursor-pointer"
                   >
-                    {newPerms.includes(key) && (
-                      <Check size={10} className="text-primary-foreground" />
-                    )}
-                  </div>
-                  <span className="text-sm text-foreground">{label}</span>
-                </label>
-              ))}
+                    <div
+                      onClick={() => togglePerm(key)}
+                      className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-colors ${
+                        newPerms.includes(key)
+                          ? "bg-primary border-primary"
+                          : "border-border"
+                      }`}
+                    >
+                      {newPerms.includes(key) && (
+                        <Check
+                          size={10}
+                          className="text-primary-foreground"
+                        />
+                      )}
+                    </div>
+                    <span className="text-sm text-foreground">
+                      {label}
+                    </span>
+                  </label>
+                ),
+              )}
             </div>
           </div>
 
@@ -1636,7 +2132,10 @@ function PayorsView() {
       ) : (
         <div className="space-y-3">
           {payors.map((p) => (
-            <div key={p.id} className="bg-card border border-border rounded-xl p-5">
+            <div
+              key={p.id}
+              className="bg-card border border-border rounded-xl p-5"
+            >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground text-sm font-mono shrink-0">
@@ -1647,7 +2146,9 @@ function PayorsView() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <p className="font-medium text-foreground text-sm">{p.name}</p>
+                      <p className="font-medium text-foreground text-sm">
+                        {p.name}
+                      </p>
                       <span
                         className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                           p.status === "active"
@@ -1658,7 +2159,9 @@ function PayorsView() {
                         {p.status}
                       </span>
                     </div>
-                    <p className="text-xs text-muted-foreground font-mono mt-0.5">{p.email}</p>
+                    <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                      {p.email}
+                    </p>
                   </div>
                 </div>
                 <button
@@ -1700,7 +2203,13 @@ function PayorsView() {
 
 // ── Notifications View ────────────────────────────────────────────────────────
 
-function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) => void }) {
+function Toggle({
+  value,
+  onChange,
+}: {
+  value: boolean;
+  onChange: (v: boolean) => void;
+}) {
   return (
     <button
       onClick={() => onChange(!value)}
@@ -1720,10 +2229,23 @@ function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) =>
 }
 
 function NotificationsView() {
-  const [reminders, setReminders] = useState({ days7: true, days3: false, days1: false });
-  const [confirmations, setConfirmations] = useState({ submitted: true, processed: true });
+  const [reminders, setReminders] = useState({
+    days7: true,
+    days3: false,
+    days1: false,
+  });
+  const [confirmations, setConfirmations] = useState({
+    submitted: true,
+    processed: true,
+  });
 
-  const SectionCard = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  const SectionCard = ({
+    title,
+    children,
+  }: {
+    title: string;
+    children: React.ReactNode;
+  }) => (
     <div className="bg-card border border-border rounded-xl overflow-hidden">
       <p className="px-5 py-3.5 text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
         {title}
@@ -1745,8 +2267,12 @@ function NotificationsView() {
   }) => (
     <div className="flex items-center justify-between gap-4 px-5 py-4">
       <div className="flex-1">
-        <p className="text-sm font-medium text-foreground">{label}</p>
-        <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{sub}</p>
+        <p className="text-sm font-medium text-foreground">
+          {label}
+        </p>
+        <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+          {sub}
+        </p>
       </div>
       <Toggle value={value} onChange={onChange} />
     </div>
@@ -1755,9 +2281,12 @@ function NotificationsView() {
   return (
     <div className="p-5 md:p-8 max-w-2xl mx-auto space-y-5">
       <div>
-        <h1 className="font-display text-2xl md:text-3xl text-foreground">Notifications</h1>
+        <h1 className="font-display text-2xl md:text-3xl text-foreground">
+          Notifications
+        </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Control when Due Notice contacts you. No promotional messages, ever.
+          Control when Due Notice contacts you. No promotional
+          messages, ever.
         </p>
       </div>
 
@@ -1766,19 +2295,25 @@ function NotificationsView() {
           label="7 days before due date"
           sub="Recommended — gives you time to transfer funds if needed"
           value={reminders.days7}
-          onChange={(v) => setReminders((p) => ({ ...p, days7: v }))}
+          onChange={(v) =>
+            setReminders((p) => ({ ...p, days7: v }))
+          }
         />
         <Row
           label="3 days before due date"
           sub="Good if you pay close to the due date"
           value={reminders.days3}
-          onChange={(v) => setReminders((p) => ({ ...p, days3: v }))}
+          onChange={(v) =>
+            setReminders((p) => ({ ...p, days3: v }))
+          }
         />
         <Row
           label="1 day before due date"
           sub="A final heads-up before the deadline"
           value={reminders.days1}
-          onChange={(v) => setReminders((p) => ({ ...p, days1: v }))}
+          onChange={(v) =>
+            setReminders((p) => ({ ...p, days1: v }))
+          }
         />
       </SectionCard>
 
@@ -1787,26 +2322,37 @@ function NotificationsView() {
           label="Payment submitted"
           sub="Sent when your payment enters processing"
           value={confirmations.submitted}
-          onChange={(v) => setConfirmations((p) => ({ ...p, submitted: v }))}
+          onChange={(v) =>
+            setConfirmations((p) => ({ ...p, submitted: v }))
+          }
         />
         <Row
           label="Payment processed"
           sub="Sent when funds have cleared"
           value={confirmations.processed}
-          onChange={(v) => setConfirmations((p) => ({ ...p, processed: v }))}
+          onChange={(v) =>
+            setConfirmations((p) => ({ ...p, processed: v }))
+          }
         />
       </SectionCard>
 
       <div className="bg-card border border-border rounded-xl p-5">
         <div className="flex items-start gap-4">
           <div className="w-9 h-9 rounded-xl bg-destructive/10 flex items-center justify-center shrink-0">
-            <AlertTriangle size={15} className="text-destructive" />
+            <AlertTriangle
+              size={15}
+              className="text-destructive"
+            />
           </div>
           <div className="flex-1">
-            <p className="text-sm font-medium text-foreground">Failed payment alerts</p>
+            <p className="text-sm font-medium text-foreground">
+              Failed payment alerts
+            </p>
             <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-              These cannot be disabled. You will always be notified immediately if a payment fails
-              so you can act before it becomes a late payment on your account.
+              These cannot be disabled. You will always be
+              notified immediately if a payment fails so you can
+              act before it becomes a late payment on your
+              account.
             </p>
           </div>
           <div className="shrink-0 mt-0.5">
@@ -1818,8 +2364,9 @@ function NotificationsView() {
       </div>
 
       <p className="text-xs text-muted-foreground leading-relaxed">
-        Due Notice sends only transactional notifications. We do not send re-engagement nudges,
-        promotional offers, or streak-loss warnings.
+        Due Notice sends only transactional notifications. We do
+        not send re-engagement nudges, promotional offers, or
+        streak-loss warnings.
       </p>
     </div>
   );
@@ -1828,7 +2375,13 @@ function NotificationsView() {
 // ── Account View ──────────────────────────────────────────────────────────────
 
 function AccountView() {
-  const SectionCard = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  const SectionCard = ({
+    title,
+    children,
+  }: {
+    title: string;
+    children: React.ReactNode;
+  }) => (
     <div className="bg-card border border-border rounded-xl overflow-hidden">
       <p className="px-5 py-3.5 text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
         {title}
@@ -1847,15 +2400,23 @@ function AccountView() {
     mono?: boolean;
   }) => (
     <div className="flex items-center gap-4 px-5 py-3.5">
-      <span className="text-xs text-muted-foreground w-28 shrink-0">{label}</span>
-      <span className={`text-sm text-foreground flex-1 ${mono ? "font-mono" : ""}`}>{value}</span>
+      <span className="text-xs text-muted-foreground w-28 shrink-0">
+        {label}
+      </span>
+      <span
+        className={`text-sm text-foreground flex-1 ${mono ? "font-mono" : ""}`}
+      >
+        {value}
+      </span>
     </div>
   );
 
   return (
     <div className="p-5 md:p-8 max-w-2xl mx-auto space-y-5">
       <div className="flex items-center justify-between">
-        <h1 className="font-display text-2xl md:text-3xl text-foreground">Account</h1>
+        <h1 className="font-display text-2xl md:text-3xl text-foreground">
+          Account
+        </h1>
         <button className="flex items-center gap-1.5 text-sm text-primary hover:underline">
           <Edit2 size={13} /> Edit
         </button>
@@ -1863,7 +2424,11 @@ function AccountView() {
 
       <SectionCard title="Personal Information">
         <InfoRow label="Full name" value="Jordan Hayes" />
-        <InfoRow label="Email" value="jordan.hayes@gmail.com" mono />
+        <InfoRow
+          label="Email"
+          value="jordan.hayes@gmail.com"
+          mono
+        />
         <InfoRow label="Phone" value="+1 (415) 555-0192" mono />
         <InfoRow label="Account #" value="LS-00041-8832" mono />
         <InfoRow label="Member since" value="November 2024" />
@@ -1871,10 +2436,18 @@ function AccountView() {
 
       <SectionCard title="Bank Accounts">
         {BANK_ACCOUNTS.map((b) => (
-          <div key={b.id} className="flex items-center gap-3 px-5 py-4">
-            <Building2 size={14} className="text-muted-foreground shrink-0" />
+          <div
+            key={b.id}
+            className="flex items-center gap-3 px-5 py-4"
+          >
+            <Building2
+              size={14}
+              className="text-muted-foreground shrink-0"
+            />
             <div className="flex-1 min-w-0">
-              <p className="text-sm text-foreground">{b.name}</p>
+              <p className="text-sm text-foreground">
+                {b.name}
+              </p>
               <p className="text-xs font-mono text-muted-foreground">
                 ···· {b.last4} · {b.type}
                 {b.isPrimary ? " · Primary" : ""}
@@ -1910,12 +2483,21 @@ function AccountView() {
             action: "Review",
           },
         ].map((row) => (
-          <div key={row.label} className="flex items-center justify-between gap-4 px-5 py-4">
+          <div
+            key={row.label}
+            className="flex items-center justify-between gap-4 px-5 py-4"
+          >
             <div>
-              <p className="text-sm font-medium text-foreground">{row.label}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{row.sub}</p>
+              <p className="text-sm font-medium text-foreground">
+                {row.label}
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {row.sub}
+              </p>
             </div>
-            <button className="text-xs text-primary hover:underline shrink-0">{row.action}</button>
+            <button className="text-xs text-primary hover:underline shrink-0">
+              {row.action}
+            </button>
           </div>
         ))}
       </SectionCard>
@@ -1923,7 +2505,9 @@ function AccountView() {
       <SectionCard title="Your Data">
         <div className="flex items-center justify-between gap-4 px-5 py-4">
           <div>
-            <p className="text-sm font-medium text-foreground">Download my data</p>
+            <p className="text-sm font-medium text-foreground">
+              Download my data
+            </p>
             <p className="text-xs text-muted-foreground mt-0.5">
               Export all account data as JSON or CSV
             </p>
@@ -1934,12 +2518,16 @@ function AccountView() {
         </div>
         <div className="flex items-center justify-between gap-4 px-5 py-4">
           <div>
-            <p className="text-sm font-medium text-destructive">Delete my account</p>
+            <p className="text-sm font-medium text-destructive">
+              Delete my account
+            </p>
             <p className="text-xs text-muted-foreground mt-0.5">
               Permanently removes all data within 30 days
             </p>
           </div>
-          <button className="text-xs text-destructive hover:underline shrink-0">Delete</button>
+          <button className="text-xs text-destructive hover:underline shrink-0">
+            Delete
+          </button>
         </div>
       </SectionCard>
     </div>
@@ -1956,27 +2544,54 @@ export default function App() {
   const toggleDark = () => setIsDark((d) => !d);
 
   if (screen === "login") {
-    return <div className={isDark ? "dark" : ""}><LoginScreen onNext={() => setScreen("2fa")} onBiometric={() => setScreen("app")} /></div>;
+    return (
+      <div className={isDark ? "dark" : ""}>
+        <LoginScreen
+          onNext={() => setScreen("2fa")}
+          onBiometric={() => setScreen("app")}
+        />
+      </div>
+    );
   }
 
   if (screen === "2fa") {
-    return <div className={isDark ? "dark" : ""}><TwoFAScreen onVerify={() => setScreen("app")} onBack={() => setScreen("login")} /></div>;
+    return (
+      <div className={isDark ? "dark" : ""}>
+        <TwoFAScreen
+          onVerify={() => setScreen("app")}
+          onBack={() => setScreen("login")}
+        />
+      </div>
+    );
   }
 
   return (
-    <div className={`flex h-screen overflow-hidden bg-background ${isDark ? "dark" : ""}`}>
+    <div
+      className={`flex h-screen overflow-hidden bg-background ${isDark ? "dark" : ""}`}
+    >
       <Sidebar
         view={view}
         onNav={setView}
         isDark={isDark}
         toggleDark={toggleDark}
-        onLogout={() => { setScreen("login"); setView("dashboard"); }}
+        onLogout={() => {
+          setScreen("login");
+          setView("dashboard");
+        }}
       />
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <MobileHeader view={view} isDark={isDark} toggleDark={toggleDark} />
+        <MobileHeader
+          view={view}
+          isDark={isDark}
+          toggleDark={toggleDark}
+        />
         <main className="flex-1 overflow-y-auto pb-20 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {view === "dashboard" && <DashboardView onPay={() => setView("payment")} />}
-          {view === "payment" && <PaymentView onDone={() => setView("dashboard")} />}
+          {view === "dashboard" && (
+            <DashboardView onPay={() => setView("payment")} />
+          )}
+          {view === "payment" && (
+            <PaymentView onDone={() => setView("dashboard")} />
+          )}
           {view === "history" && <HistoryView />}
           {view === "payors" && <PayorsView />}
           {view === "notifications" && <NotificationsView />}
