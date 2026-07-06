@@ -2,7 +2,7 @@
 
 A high-fidelity interactive prototype of a mobile loan servicing and payment experience, rendered in a simulated iPhone frame in the browser. Due Notice explores what a modern, trust-forward student loan payment app could feel like — from authentication through payment confirmation — with particular attention to the high-stakes moments where clarity and reassurance matter most.
 
-**Live demo:** _[add your deployed URL here]_
+**Live demo:** [https://due-notice.vercel.app/]
 
 **Demo credentials:** The login screen is pre-filled; tap **Sign In** (or use the biometric simulation) and enter any 6-digit code on the 2FA screen.
 
